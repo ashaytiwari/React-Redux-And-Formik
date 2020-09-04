@@ -27,6 +27,7 @@
     border: none;
     box-shadow: 0 4px 6px 0 black;
     font-size: 18px;
+    margin: 10px
 }
 .Youtube-form .form button:hover{
     box-shadow: 0 2px 4px 0 black;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Formik, Form, Field, ErrorMessage, FieldArray} from 'formik'
+import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik'
 import * as Yup from 'yup'
 import TextError from './TextError'
 
@@ -31,6 +31,15 @@ const validationSchema = Yup.object({
     address: Yup.string().required('Required')
 })
 
+// Field level validation for social.facebook
+const validateFacebook = values => {
+    let error
+    if (!values) {
+        error = 'Required'
+    }
+    return error
+}
+
 function YoutubeForm() {
 
     return (
@@ -40,109 +49,116 @@ function YoutubeForm() {
                 <div className="col-md-2"></div>
 
                 <div className="col-md-8 form">
+                    {/* For manually triggering we pass form element as render props pattern */}
                     <Formik
                         initialValues={initialValues}
                         validationSchema={validationSchema}
                         onSubmit={onSubmit}>
-                        <Form>
-                            <div className="formGroup">
-                                <Field
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder="Name" />
-                                <ErrorMessage  name='name' component={TextError} />
-                            </div>
+                        {
+                            formik => {
+                                return (
+                                    <Form>
+                                        <div className="formGroup">
+                                            <Field
+                                                type="text"
+                                                id="name"
+                                                name="name"
+                                                placeholder="Name" />
+                                            <ErrorMessage name='name' component={TextError} />
+                                        </div>
 
-                            <div className="formGroup">
-                                <Field
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="Email" />
-                                <ErrorMessage  name='email'>
-                                    {
-                                        (errorMsg) => <div className="error"> {errorMsg} </div>
-                                    }
-                                </ErrorMessage>
-                            </div>
+                                        <div className="formGroup">
+                                            <Field
+                                                type="email"
+                                                id="email"
+                                                name="email"
+                                                placeholder="Email" />
+                                            <ErrorMessage name='email'>
+                                                {
+                                                    (errorMsg) => <div className="error"> {errorMsg} </div>
+                                                }
+                                            </ErrorMessage>
+                                        </div>
 
-                            <div className="formGroup">
-                                <Field
-                                    type="text"
-                                    id="channel"
-                                    name="channel"
-                                    placeholder="Channel" />
-                                <ErrorMessage  name='channel' component={TextError}/>
-                            </div>
+                                        <div className="formGroup">
+                                            <Field
+                                                type="text"
+                                                id="channel"
+                                                name="channel"
+                                                placeholder="Channel" />
+                                            <ErrorMessage name='channel' component={TextError} />
+                                        </div>
 
-                            <div className="formGroup">
-                                <Field 
-                                as="textarea"
-                                type="text"
-                                id="comments"
-                                name="comments"
-                                placeholder="Comments" />
-                                <ErrorMessage  name='comments' component={TextError}/>
-                            </div>
-                            
-                            <div className="formGroup">
-                                <Field name="address">
-                                    {
-                                        props => {
-                                            const { field, form, meta} = props
-                                            return (
-                                                <div>
-                                                    <input id="address" type="text" placeholder="Address" {...field} />
-                                                    {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null }
-                                                </div>
-                                            )
-                                        }
-                                    }
-                                </Field>
-                            </div>
+                                        <div className="formGroup">
+                                            <Field
+                                                as="textarea"
+                                                type="text"
+                                                id="comments"
+                                                name="comments"
+                                                placeholder="Comments" />
+                                            <ErrorMessage name='comments' component={TextError} />
+                                        </div>
 
-                            <div className="formGroup">
-                                <Field 
-                                type="text"
-                                id="facebook"
-                                name="social.facebook"
-                                placeholder="Facebook Profile" />
-                            </div>
+                                        <div className="formGroup">
+                                            <Field name="address">
+                                                {
+                                                    props => {
+                                                        const { field, form, meta } = props
+                                                        return (
+                                                            <div>
+                                                                <input id="address" type="text" placeholder="Address" {...field} />
+                                                                {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+                                                            </div>
+                                                        )
+                                                    }
+                                                }
+                                            </Field>
+                                        </div>
 
-                            <div className="formGroup">
-                                <Field 
-                                type="text"
-                                id="instagram"
-                                name="social.instagram"
-                                placeholder="Instagram Profile" />
-                            </div>
+                                        {/* Field level validation applied */}
+                                        <div className="formGroup">
+                                            <Field
+                                                type="text"
+                                                id="facebook"
+                                                name="social.facebook"
+                                                validate={validateFacebook}
+                                                placeholder="Facebook Profile" />
+                                            <ErrorMessage name="social.facebook" component={TextError} />
+                                        </div>
 
-                            <div className="formGroup">
-                                <Field 
-                                type="text"
-                                id="twitter"
-                                name="social.twitter"
-                                placeholder="Twitter Profile" />                            
-                            </div>
+                                        <div className="formGroup">
+                                            <Field
+                                                type="text"
+                                                id="instagram"
+                                                name="social.instagram"
+                                                placeholder="Instagram Profile" />
+                                        </div>
 
-                            <div className="formGroup">
-                                <Field 
-                                type="text"
-                                id="primarNo"
-                                name="phoneNo[0]"
-                                placeholder="Primary No" />                            
-                            </div>
+                                        <div className="formGroup">
+                                            <Field
+                                                type="text"
+                                                id="twitter"
+                                                name="social.twitter"
+                                                placeholder="Twitter Profile" />
+                                        </div>
 
-                            <div className="formGroup">
-                                <Field 
-                                type="text"
-                                id="secondaryNo"
-                                name="phoneNo[1]"
-                                placeholder="Secondary No" />                            
-                            </div>
+                                        <div className="formGroup">
+                                            <Field
+                                                type="text"
+                                                id="primarNo"
+                                                name="phoneNo[0]"
+                                                placeholder="Primary No" />
+                                        </div>
 
-                            {/* <div className="formGroup">
+                                        <div className="formGroup">
+                                            <Field
+                                                type="text"
+                                                id="secondaryNo"
+                                                name="phoneNo[1]"
+                                                placeholder="Secondary No" />
+                                        </div>
+
+                                        {/* <div className="formGroup">
                                 <FieldArray name="phNo">
                                     {
                                         fieldArrayProps => {
@@ -164,10 +180,26 @@ function YoutubeForm() {
                                     }
                                 </FieldArray>
                             </div> */}
-                            
 
-                            <button type="submit">Submit</button>
-                        </Form>
+                                        <button type="button" onClick={() => formik.validateField('social.facebook')}>Validate Facebook</button>
+                                        <button type="button" onClick={() => formik.validateForm()}>Validate all</button>
+                                        <button type="button" onClick={() => formik.setFieldTouched('social.facebook')}>Visit Facebook</button>
+                                        <button type="button" onClick={() => formik.setTouched({
+                                            name: true,
+                                            email: true,
+                                            channel: true,
+                                            comments: true,
+                                            address: true,
+                                            social: {
+                                                facebook: true
+                                            }
+                                        })}>Visit all</button>
+                                        <button type="submit">Submit</button>
+                                    </Form>
+                                )
+                            }
+                        }
+
                     </Formik>
                 </div>
 
