@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik'
 import * as Yup from 'yup'
 import TextError from './TextError'
@@ -18,10 +18,27 @@ const initialValues = {
     phNo: ['']
 }
 
+// Saved values to load on the form on calling
+const savedValues = {
+    name: 'Ashay',
+    email: 'ashaytiwari2001@gmail.com',
+    channel: 'Code',
+    comments: 'sd',
+    address: 'nskfd',
+    social: {
+        facebook: 'sdf',
+        instagram: 'ds',
+        twitter: 'sd'
+    },
+    phoneNo: ['123', '345'],
+    phNo: ['21']
+}
+
 const onSubmit = (values, onSubmitProps) => {
     console.log('Form data:-', values)
+    console.log('form submission', onSubmitProps)
     onSubmitProps.setSubmitting(false);  
-
+    onSubmitProps.resetForm();
 }
 
 const validationSchema = Yup.object({
@@ -42,7 +59,7 @@ const validateFacebook = values => {
 }
 
 function YoutubeForm() {
-
+    const [formValues, setformValues] = useState(null)
     return (
         <div className="Youtube-form">
             <div className="row">
@@ -52,9 +69,10 @@ function YoutubeForm() {
                 <div className="col-md-8 form">
                     {/* For manually triggering we pass form element as render props pattern */}
                     <Formik
-                        initialValues={initialValues}
+                        initialValues={formValues || initialValues}
                         validationSchema={validationSchema}
-                        onSubmit={onSubmit}>
+                        onSubmit={onSubmit}
+                        enableReinitialize>
                         {
                             formik => {
                                 return (
@@ -195,6 +213,12 @@ function YoutubeForm() {
                                                 facebook: true
                                             }
                                         })}>Visit all</button>
+
+                                        {/* Reset data button */}
+                                        <button type="reset">Reset</button>
+
+                                        {/* Sve load data button */}
+                                        <button type="button" onClick={() => setformValues(savedValues)}>Load saved data</button>
 
                                         {/* Disabling the submit button */}
                                         <button type="submit" disabled={!formik.isValid || formik.isSubmitting}>Submit</button>
