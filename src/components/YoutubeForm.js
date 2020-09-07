@@ -18,8 +18,9 @@ const initialValues = {
     phNo: ['']
 }
 
-const onSubmit = values => {
+const onSubmit = (values, onSubmitProps) => {
     console.log('Form data:-', values)
+    onSubmitProps.setSubmitting(false);  
 
 }
 
@@ -194,7 +195,9 @@ function YoutubeForm() {
                                                 facebook: true
                                             }
                                         })}>Visit all</button>
-                                        <button type="submit">Submit</button>
+
+                                        {/* Disabling the submit button */}
+                                        <button type="submit" disabled={!formik.isValid || formik.isSubmitting}>Submit</button>
                                     </Form>
                                 )
                             }
