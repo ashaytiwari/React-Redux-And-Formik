@@ -18,6 +18,11 @@
     padding: 10px;
     font-size: 18px;
 }
+.Youtube-form .form label{
+    font-size: 18px;
+    color: teal;
+    letter-spacing: 4px;
+}
 .Youtube-form .form button{
     padding: 10px 20px;
     border-radius: 10px;
