@@ -1,13 +1,22 @@
 import React from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
+import FormikComponent from './FormikComponent'
 
 function FormikContainer() {
-    const initialValues = {}
-    const validationSchema = Yup.object({})
+
+    const initialValues = {
+        email: ''
+    }
+
+    const validationSchema = Yup.object({
+        email: Yup.string().required('Required').email('Invalid Email Format')
+    })
+
     const onSubmit = values => {
         console.log('Form values', values)
     }
+
     return (
         <div className='Youtube-form'>
             <div className="row">
@@ -20,7 +29,12 @@ function FormikContainer() {
                         {
                             formik => (
                                 <Form>
-                                    <submit type="submit">Submit</submit>
+                                    <FormikComponent 
+                                    control='input' 
+                                    type='email' 
+                                    label='Email' 
+                                    name='email' />
+                                    <button type="submit">Submit</button>
                                 </Form>
                             )}
                     </Formik>
