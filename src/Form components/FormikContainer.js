@@ -19,18 +19,27 @@ function FormikContainer() {
         { key: 'Fullstack', value: 'Fullstack' }
     ]
 
+    const checkboxOptions = [
+        { key: 'Html/Css', value: 'Html/Css' },
+        { key: 'JS', value: 'JS' },
+        { key: 'React', value: 'React' },
+        { key: 'NodeJs', value: 'NodeJs' },
+    ]
+
     const initialValues = {
         email: '',
         description: '',
         selectOption: '',
-        radioOption: ''
+        radioOption: '',
+        checkboxOption: []
     }
 
     const validationSchema = Yup.object({
         email: Yup.string().required('Required').email('Invalid Email Format'),
         description: Yup.string().required('Required'),
         selectOption: Yup.string().required('Required'),
-        radioOption: Yup.string().required('Required')
+        radioOption: Yup.string().required('Required'),
+        checkboxOption: Yup.array().required('Required')
     })
 
     const onSubmit = values => {
@@ -71,6 +80,12 @@ function FormikContainer() {
                                         label='Select Domain'
                                         name='radioOption'
                                         options={radioOptions} />
+
+                                    <FormikComponent
+                                        control='checkbox'
+                                        label='Select tech'
+                                        name='checkboxOption'
+                                        options={checkboxOptions} />
 
                                     <button type="submit">Submit</button>
                                 </Form>
