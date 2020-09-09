@@ -5,14 +5,24 @@ import FormikComponent from './FormikComponent'
 
 function FormikContainer() {
 
+    const dropdownOptions = [
+        { key: 'Select a country', value: '' },
+        { key: 'India', value: 'India' },
+        { key: 'America', value: 'America' },
+        { key: 'Australia', value: 'Australia' },
+        { key: 'Sweden', value: 'Sweden' }
+    ]
+
     const initialValues = {
         email: '',
-        description: ''
+        description: '',
+        selectOption: ''
     }
 
     const validationSchema = Yup.object({
         email: Yup.string().required('Required').email('Invalid Email Format'),
-        description: Yup.string().required('Required')
+        description: Yup.string().required('Required'),
+        selectOption: Yup.string().required('Required'),
     })
 
     const onSubmit = values => {
@@ -24,23 +34,29 @@ function FormikContainer() {
             <div className="row">
                 <div className="col-md-2"></div>
                 <div className="col-md-8 form">
-                    <Formik 
-                    initialValues={initialValues}
-                    validationSchema={validationSchema}
-                    onSubmit={onSubmit} >
+                    <Formik
+                        initialValues={initialValues}
+                        validationSchema={validationSchema}
+                        onSubmit={onSubmit} >
                         {
                             formik => (
                                 <Form>
-                                    <FormikComponent 
-                                    control='input' 
-                                    type='email' 
-                                    label='Email' 
-                                    name='email' />
+                                    <FormikComponent
+                                        control='input'
+                                        type='email'
+                                        label='Email'
+                                        name='email' />
 
-                                    <FormikComponent 
-                                    control='textarea'  
-                                    label='Description' 
-                                    name='description' />
+                                    <FormikComponent
+                                        control='textarea'
+                                        label='Description'
+                                        name='description' />
+
+                                    <FormikComponent
+                                        control='select'
+                                        label='Select Country'
+                                        name='selectOption'
+                                        options={dropdownOptions} />
 
                                     <button type="submit">Submit</button>
                                 </Form>

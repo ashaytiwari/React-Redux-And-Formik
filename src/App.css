@@ -23,6 +23,13 @@
     color: teal;
     letter-spacing: 4px;
 }
+.Youtube-form .form select{
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid gray;
+    width: 100%;
+}
 .Youtube-form .form button{
     padding: 10px 20px;
     border-radius: 10px;
