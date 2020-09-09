@@ -6,11 +6,13 @@ import './App.css';
 import ReduxContainer from './components/ReduxContainer';
 import YoutubeForm from './components/YoutubeForm';
 import FormikContainer from './Form components/FormikContainer';
+import RegistrationForm from './Form components/RegistrationForm';
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
+        <RegistrationForm />
         <FormikContainer />
         <YoutubeForm />
         <ReduxContainer />
