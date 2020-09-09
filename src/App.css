@@ -9,7 +9,7 @@
 .Youtube-form .form:hover{
     box-shadow: 0 4px 6px 0 black;
 }
-.Youtube-form .form input, .Youtube-form .form textarea{
+.Youtube-form .form input[type=text],.Youtube-form .form input[type=email], .Youtube-form .form textarea{
     border: none;
     border-bottom: 1px solid gray;
     background-color: white;     
@@ -17,6 +17,14 @@
     width: 100%;
     padding: 10px;
     font-size: 18px;
+}
+.Youtube-form .form input[type=radio]{
+    border: 1px solid teal;
+    width: 18px;
+}
+
+.Youtube-form .form .radio-label{
+    letter-spacing: 0;
 }
 .Youtube-form .form label{
     font-size: 18px;
