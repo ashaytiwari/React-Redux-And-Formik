@@ -200,10 +200,10 @@ function YoutubeForm() {
                                 </FieldArray>
                             </div> */}
 
-                                        <button type="button" onClick={() => formik.validateField('social.facebook')}>Validate Facebook</button>
-                                        <button type="button" onClick={() => formik.validateForm()}>Validate all</button>
-                                        <button type="button" onClick={() => formik.setFieldTouched('social.facebook')}>Visit Facebook</button>
-                                        <button type="button" onClick={() => formik.setTouched({
+                                        <button type="button" className="teal-btn" onClick={() => formik.validateField('social.facebook')}>Validate Facebook</button>
+                                        <button type="button" className="teal-btn" onClick={() => formik.validateForm()}>Validate all</button>
+                                        <button type="button" className="teal-btn" onClick={() => formik.setFieldTouched('social.facebook')}>Visit Facebook</button>
+                                        <button type="button" className="teal-btn" onClick={() => formik.setTouched({
                                             name: true,
                                             email: true,
                                             channel: true,
@@ -215,13 +215,13 @@ function YoutubeForm() {
                                         })}>Visit all</button>
 
                                         {/* Reset data button */}
-                                        <button type="reset">Reset</button>
+                                        <button type="reset" className="teal-btn">Reset</button>
 
                                         {/* Sve load data button */}
-                                        <button type="button" onClick={() => setformValues(savedValues)}>Load saved data</button>
+                                        <button type="button" className="teal-btn" onClick={() => setformValues(savedValues)}>Load saved data</button>
 
                                         {/* Disabling the submit button */}
-                                        <button type="submit" disabled={!formik.isValid || formik.isSubmitting}>Submit</button>
+                                        <button type="submit" disabled={!formik.isValid || formik.isSubmitting} className="teal-btn">Submit</button>
                                     </Form>
                                 )
                             }

@@ -26,6 +26,11 @@
 .Youtube-form .form .radio-label{
     letter-spacing: 0;
 }
+.Youtube-form .form .date-picker button{
+    color: black;
+    background-color: white;
+    font-size: inherit;
+}
 .Youtube-form .form label{
     font-size: 18px;
     color: teal;
@@ -38,7 +43,7 @@
     border-bottom: 1px solid gray;
     width: 100%;
 }
-.Youtube-form .form button{
+.Youtube-form .form .teal-btn{
     padding: 10px 20px;
     border-radius: 10px;
     outline: none;
