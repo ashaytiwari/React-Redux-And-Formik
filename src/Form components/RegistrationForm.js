@@ -33,10 +33,8 @@ function RegistrationForm() {
               "Password must contain at least 8 characters, one uppercase, one number and one special case character"
             ),
           confirmPassword: Yup.string()
-            .required("Please confirm your password")
-            .test('passwords-match', 'Passwords must match ya fool', function(value) {
-                return this.parent.password === value;
-              }),
+            .oneOf([Yup.ref('password'), ''], 'Password not match')
+            .required("Please confirm your password"),
         modeOfContact: Yup.string().required('Required'),
         phoneNo: Yup.string().when('modeOfContact', {
                 is: 'TelephoneMOC',
@@ -93,7 +91,7 @@ function RegistrationForm() {
                                         name="phoneNo"
                                         type="text"/>
 
-                                    <button type="submit" className="teal-btn" disabled={!formik.isValid}>Submit</button>
+                                    <button type="submit" className="teal-btn">Submit</button>
                                 </Form>
                             }
                         }
