@@ -6,13 +6,13 @@ import { GiSwordwoman } from "react-icons/gi";
 
 function ReactIcons() {
     return (
-        <IconContext.Provider value={{ color:'Teal', size:"50px"}}>
-                <div className="rCard text-center">
-                    <h4>React-Icons</h4>
-                    <FaHubspot />
-                    <AiFillApple />
-                    <GiSwordwoman />
-                </div>
+        <IconContext.Provider value={{ color: 'Teal', size: "50px" }}>
+            <div className="rCard text-center">
+                <h4>React-Icons</h4>
+                <FaHubspot />
+                <AiFillApple />
+                <GiSwordwoman />
+            </div>
         </IconContext.Provider>
     )
 }

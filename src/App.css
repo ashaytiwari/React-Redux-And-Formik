@@ -76,3 +76,12 @@
     box-shadow: 0 4px 6px 0 black;
     margin: 20px;
 }
+.rButton{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: teal;
+    color: white;
+    outline: none;
+    margin: 5px;
+}

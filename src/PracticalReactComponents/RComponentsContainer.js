@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactIcons from './ReactIcons'
+import ReactToastNotifications from './ReactToastNotifications'
 
 function RComponentsContainer() {
     return (
@@ -10,7 +11,7 @@ function RComponentsContainer() {
             </div>
 
             <div className="col-md-4">
-
+                <ReactToastNotifications />
             </div>
 
             <div className="col-md-4"></div>
