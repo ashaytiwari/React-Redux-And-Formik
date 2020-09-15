@@ -7,11 +7,14 @@ import ReduxContainer from './components/ReduxContainer';
 import YoutubeForm from './components/YoutubeForm';
 import FormikContainer from './Form components/FormikContainer';
 import RegistrationForm from './Form components/RegistrationForm';
+// import ReactIcons from './PracticalReactComponents/ReactIcons';
+import RComponentsContainer from './PracticalReactComponents/RComponentsContainer';
 
 function App() {
   return (
     <Provider store={store}>
       <div className="App">
+        <RComponentsContainer />
         <RegistrationForm />
         <FormikContainer />
         <YoutubeForm />

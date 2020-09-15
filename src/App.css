@@ -69,3 +69,10 @@
 .Youtube-form .form .formGroup{
     margin-bottom: 20px;
 }
+.rCard{ 
+    padding: 60px 45px;
+    border-radius: 10px;
+    border: 1px xolid teal;
+    box-shadow: 0 4px 6px 0 black;
+    margin: 20px;
+}
