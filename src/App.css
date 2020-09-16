@@ -75,6 +75,7 @@
     border: 1px xolid teal;
     box-shadow: 0 4px 6px 0 black;
     margin: 20px;
+    background-color: white;
 }
 .rButton{
     padding: 10px 20px;
@@ -92,4 +93,24 @@
     top: 0;
     right: 0;
     position: absolute;
+}
+.cardForm{
+    padding: 35px 45px;
+    border: 2px solid teal;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 black;
+    margin-top: 30px;
+}
+.cardForm h4{
+    color: teal
+}
+.cardForm input{
+    padding: 10px 16px;
+    width: 100%;
+    color: 'teal';
+    border: none;
+    border-bottom: 2px solid teal;
+    outline: none;
+    margin-bottom: 14px ;
 }
