@@ -85,3 +85,11 @@
     outline: none;
     margin: 5px;
 }
+.modalClose{
+    margin: 0;
+    color: teal;
+    font-size: 25px;
+    top: 0;
+    right: 0;
+    position: absolute;
+}

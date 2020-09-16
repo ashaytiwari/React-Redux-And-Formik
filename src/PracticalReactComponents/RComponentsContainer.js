@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactIcons from './ReactIcons'
 import ReactToastNotifications from './ReactToastNotifications'
+import ReactModal from './ReactModal'
+
 
 function RComponentsContainer() {
     return (
@@ -14,7 +16,9 @@ function RComponentsContainer() {
                 <ReactToastNotifications />
             </div>
 
-            <div className="col-md-4"></div>
+            <div className="col-md-4">
+                <ReactModal />
+            </div>
         </div>
     )
 }
