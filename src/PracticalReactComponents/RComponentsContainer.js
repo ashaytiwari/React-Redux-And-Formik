@@ -3,6 +3,7 @@ import ReactIcons from './ReactIcons'
 import ReactToastNotifications from './ReactToastNotifications'
 import ReactModal from './ReactModal'
 import ReactCreditCard from './ReactCreditCard'
+import ReactTooltip from './ReactTooltip'
 
 
 function RComponentsContainer() {
@@ -27,6 +28,14 @@ function RComponentsContainer() {
                 <ReactCreditCard />
                 </div>
             </div>
+
+            <div className="row text-center">
+                <div className='col-md-4'>
+                    <ReactTooltip />
+                </div>
+            </div>
+
+            
         </div>
        
         
